@@ -37,7 +37,7 @@ bootstrapScript: |
   rm -rf /var/lib/apt/lists/* && \
   pip install \
     psycopg2-binary==2.9.1 \
-    pybigquery==2.26.0 \
+    pybigquery==0.10.2 \
     redis==3.5.3 && \
   if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
 
