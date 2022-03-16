@@ -190,11 +190,11 @@ ingress:
   path: /
   pathType: ImplementationSpecific
   hosts:
-    - chart-example.local
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+    - chart-example.local # FIXME
+  tls: 
+    - secretName: chart-example-tls # FIXME
+      hosts:
+        - chart-example.local # FIXME
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -365,7 +365,7 @@ postgresql:
   ##
   ## Use the PostgreSQL chart dependency.
   ## Set to false if bringing your own PostgreSQL.
-  enabled: true
+  enabled: false
   ##
   ## The name of an existing secret that contains the postgres password.
   existingSecret:
