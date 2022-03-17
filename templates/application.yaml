@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: superset
+  annotations:
+    notifications.argoproj.io/subscribe.slack: hermod-notifications
+    argocd.argoproj.io/manifest-generate-paths: .
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    path: apps/superset
+    repoURL: https://apache.github.io/superset
+    chart: superset
+    helm:
+      valueFiles: values.yaml
+  destination:
+    namespace: superset
+    server: {{ $.Values.global.destination.localServer }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
