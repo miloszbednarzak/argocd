@@ -11,7 +11,7 @@ metadata:
 spec:
   project: default
   source:
-    path: apps/superset
+    path: . #apps/superset
     repoURL: https://apache.github.io/superset
     targetRevision: 0.5.10
     chart: superset
