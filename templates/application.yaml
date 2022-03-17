@@ -13,13 +13,14 @@ spec:
   source:
     path: apps/superset
     repoURL: https://apache.github.io/superset
+    targetRevision: 0.5.10
     chart: superset
     helm:
       valueFiles: 
         - values.yaml
   destination:
     namespace: superset
-    # {# $.Values.global.destination.localServer #}
+    # $.Values.global.destination.localServer
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
