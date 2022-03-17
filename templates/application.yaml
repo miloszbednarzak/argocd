@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: superset
   annotations:
-    notifications.argoproj.io/subscribe.slack: hermod-notifications
+    # notifications.argoproj.io/subscribe.slack: hermod-notifications
     argocd.argoproj.io/manifest-generate-paths: .
   namespace: argocd
   finalizers:
