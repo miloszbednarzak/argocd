@@ -15,7 +15,8 @@ spec:
     repoURL: https://apache.github.io/superset
     chart: superset
     helm:
-      valueFiles: values.yaml
+      valueFiles: 
+        - values.yaml
   destination:
     namespace: superset
     # {# $.Values.global.destination.localServer #}
