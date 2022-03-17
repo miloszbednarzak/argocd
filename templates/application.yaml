@@ -18,7 +18,8 @@ spec:
       valueFiles: values.yaml
   destination:
     namespace: superset
-    server: https://kubernetes.default.svc #{{ $.Values.global.destination.localServer }}
+    # {{ $.Values.global.destination.localServer }}
+    server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       prune: true
