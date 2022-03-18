@@ -73,7 +73,7 @@ extraEnvRaw:
     valueFrom:
       secretKeyRef:
         name: superset-db-password
-        key: password
+        key: DB_PASS
 
 ## Extra environment variables to pass as secrets
 ##
@@ -194,11 +194,11 @@ ingress:
   path: /
   pathType: ImplementationSpecific
   hosts:
-    - chart-example.local # FIXME
+    - analytics.k8s.bethink.tech
   tls: 
-    - secretName: chart-example-tls # FIXME
+    - secretName: analytics-tls
       hosts:
-        - chart-example.local # FIXME
+        - analytics.k8s.bethink.tech
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -234,7 +234,7 @@ supersetNode:
     # redis_password: superset
     redis_port: "6379"
     # You need to change below configuration incase bringing own PostgresSQL instance and also set postgresql.enabled:false
-    db_host: '{{ template "superset.fullname" . }}-postgresql'
+    db_host: meltano-1.db.bethink.private
     db_port: "5432"
     db_user: superset
     db_pass: superset
